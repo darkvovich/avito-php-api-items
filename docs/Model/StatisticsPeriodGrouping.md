@@ -1,4 +1,4 @@
-# StatisticsCounters
+# StatisticsPeriodGrouping
 
 ## Properties
 Name | Type | Description | Notes

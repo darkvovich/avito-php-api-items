@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsDateToTest
+ * StatisticsCountersInnerTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * StatisticsDateToTest Class Doc Comment
+ * StatisticsCountersInnerTest Class Doc Comment
  *
  * @category    Class
- * @description Дата (в формате YYYY-MM-DD), по которую (включительно) надо получить статистику
+ * @description StatisticsCountersInner
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class StatisticsDateToTest extends \PHPUnit_Framework_TestCase
+class StatisticsCountersInnerTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,23 @@ class StatisticsDateToTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "StatisticsDateTo"
+     * Test "StatisticsCountersInner"
      */
-    public function testStatisticsDateTo()
+    public function testStatisticsCountersInner()
+    {
+    }
+
+    /**
+     * Test attribute "item_id"
+     */
+    public function testPropertyItemId()
+    {
+    }
+
+    /**
+     * Test attribute "stats"
+     */
+    public function testPropertyStats()
     {
     }
 }

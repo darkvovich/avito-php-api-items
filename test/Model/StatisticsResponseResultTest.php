@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsDateToTest
+ * StatisticsResponseResultTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * StatisticsDateToTest Class Doc Comment
+ * StatisticsResponseResultTest Class Doc Comment
  *
  * @category    Class
- * @description Дата (в формате YYYY-MM-DD), по которую (включительно) надо получить статистику
+ * @description Статистические счетчики объявления
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class StatisticsDateToTest extends \PHPUnit_Framework_TestCase
+class StatisticsResponseResultTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,16 @@ class StatisticsDateToTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "StatisticsDateTo"
+     * Test "StatisticsResponseResult"
      */
-    public function testStatisticsDateTo()
+    public function testStatisticsResponseResult()
+    {
+    }
+
+    /**
+     * Test attribute "items"
+     */
+    public function testPropertyItems()
     {
     }
 }

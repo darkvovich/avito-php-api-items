@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsDateToTest
+ * StatisticsPeriodGroupingTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * StatisticsDateToTest Class Doc Comment
+ * StatisticsPeriodGroupingTest Class Doc Comment
  *
  * @category    Class
- * @description Дата (в формате YYYY-MM-DD), по которую (включительно) надо получить статистику
+ * @description Период группировки
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class StatisticsDateToTest extends \PHPUnit_Framework_TestCase
+class StatisticsPeriodGroupingTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,9 @@ class StatisticsDateToTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "StatisticsDateTo"
+     * Test "StatisticsPeriodGrouping"
      */
-    public function testStatisticsDateTo()
+    public function testStatisticsPeriodGrouping()
     {
     }
 }

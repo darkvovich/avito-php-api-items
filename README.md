@@ -56,20 +56,186 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\Api\AccessApi(
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$grant_type = "client_credentials"; // string | Тип OAuth flow – строка client_credentials
-$client_id = "client_id_example"; // string | 
-$client_secret = "client_secret_example"; // string | 
+$user_id = 789; // int | Номер пользователя в Личном кабинете Авито
+$item_id = 789; // int | Идентификатор объявления на сайте
+$authorization = "authorization_example"; // string | Токен для авторизации
 
 try {
-    $result = $apiInstance->getAccessToken($grant_type, $client_id, $client_secret);
+    $result = $apiInstance->getItemInfo($user_id, $item_id, $authorization);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AccessApi->getAccessToken: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ItemApi->getItemInfo: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$authorization = "authorization_example"; // string | Токен для авторизации
+$per_page = 25; // int | Количество записей на странице (целое число больше 0 и меньше 100)
+$page = 1; // int | Номер страницы (целое число больше 0)
+$status = "active"; // string | Статус объявления на сайте (можно указать несколько значений через запятую)
+$category = 56; // int | Идентификатор категории объявления
+
+try {
+    $result = $apiInstance->getItemsInfo($authorization, $per_page, $page, $status, $category);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getItemsInfo: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$authorization = "authorization_example"; // string | Токен для авторизации
+$user_id = 789; // int | Номер пользователя в Личном кабинете Авито
+$body = new \Swagger\Client\Model\ItemIdsRequestBody(); // \Swagger\Client\Model\ItemIdsRequestBody | Набор идентификаторов объявлений на сайте
+
+try {
+    $result = $apiInstance->getVasPackagePrice($authorization, $user_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getVasPackagePrice: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$authorization = "authorization_example"; // string | Токен для авторизации
+$user_id = 789; // int | Номер пользователя в Личном кабинете Авито
+$body = new \Swagger\Client\Model\ItemIdsRequestBody(); // \Swagger\Client\Model\ItemIdsRequestBody | Набор идентификаторов объявлений на сайте
+
+try {
+    $result = $apiInstance->getVasPrices($authorization, $user_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->getVasPrices: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$authorization = "authorization_example"; // string | Токен для авторизации
+$content_type = "content_type_example"; // string | Тип данных запроса
+$user_id = 789; // int | Идентификатор пользователя (клиента)
+$body = new \Swagger\Client\Model\StatisticsShallowRequestBody(); // \Swagger\Client\Model\StatisticsShallowRequestBody | Набор параметров в теле запроса.
+
+try {
+    $result = $apiInstance->itemStatsShallow($authorization, $content_type, $user_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->itemStatsShallow: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \Swagger\Client\Model\CallsStatsRequest(); // \Swagger\Client\Model\CallsStatsRequest | 
+$authorization = "authorization_example"; // string | Токен для авторизации
+$content_type = "content_type_example"; // string | Тип данных запроса
+$user_id = 789; // int | Номер пользователя в Личном кабинете Авито
+
+try {
+    $result = $apiInstance->postCallsStats($body, $authorization, $content_type, $user_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->postCallsStats: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$authorization = "authorization_example"; // string | Токен для авторизации
+$user_id = 789; // int | Номер пользователя в Личном кабинете Авито
+$item_id = 789; // int | Идентификатор объявления на сайте
+$body = new \Swagger\Client\Model\VasIdRequestBody(); // \Swagger\Client\Model\VasIdRequestBody | 
+
+try {
+    $result = $apiInstance->putItemVas($authorization, $user_id, $item_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->putItemVas: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure OAuth2 access token for authorization: AuthorizationCode
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure OAuth2 access token for authorization: ClientCredentials
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+$apiInstance = new Swagger\Client\Api\ItemApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$authorization = "authorization_example"; // string | Токен для авторизации
+$user_id = 789; // int | Номер пользователя в Личном кабинете Авито
+$item_id = 789; // int | Идентификатор объявления на сайте
+$body = new \Swagger\Client\Model\PackageIdRequestBodyV2(); // \Swagger\Client\Model\PackageIdRequestBodyV2 | 
+
+try {
+    $result = $apiInstance->putItemVasPackageV2($authorization, $user_id, $item_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ItemApi->putItemVasPackageV2: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -80,9 +246,6 @@ All URIs are relative to *https://api.avito.ru/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccessApi* | [**getAccessToken**](docs/Api/AccessApi.md#getaccesstoken) | **GET** /token | Получение access token
-*ApplicationAccessApi* | [**getAccessTokenAuthorizationCode**](docs/Api/ApplicationAccessApi.md#getaccesstokenauthorizationcode) | **GET** /token‎ | Получение access token
-*ApplicationAccessApi* | [**refreshAccessTokenAuthorizationCode**](docs/Api/ApplicationAccessApi.md#refreshaccesstokenauthorizationcode) | **GET** /token‎‎ | Обновление access token
 *ItemApi* | [**getItemInfo**](docs/Api/ItemApi.md#getiteminfo) | **GET** /core/v1/accounts/{user_id}/items/{item_id}/ | Получение информации по объявлению
 *ItemApi* | [**getItemsInfo**](docs/Api/ItemApi.md#getitemsinfo) | **GET** /core/v1/items | Получение информации по объявлениям
 *ItemApi* | [**getVasPackagePrice**](docs/Api/ItemApi.md#getvaspackageprice) | **POST** /core/v1/accounts/{user_id}/price/vas_packages | Получение информации о стоимости пакетов дополнительных услуг
@@ -108,9 +271,6 @@ Class | Method | HTTP request | Description
  - [InfoVas](docs/Model/InfoVas.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
- - [InlineResponse2002](docs/Model/InlineResponse2002.md)
- - [InlineResponse2003](docs/Model/InlineResponse2003.md)
- - [InlineResponse2004](docs/Model/InlineResponse2004.md)
  - [ItemIdsRequestBody](docs/Model/ItemIdsRequestBody.md)
  - [ItemInfoAvito](docs/Model/ItemInfoAvito.md)
  - [ItemsInfoWithCategoryAvito](docs/Model/ItemsInfoWithCategoryAvito.md)
@@ -127,13 +287,14 @@ Class | Method | HTTP request | Description
  - [ServiceUnavailableError](docs/Model/ServiceUnavailableError.md)
  - [ServiceUnavailableErrorError](docs/Model/ServiceUnavailableErrorError.md)
  - [StatisticsCounters](docs/Model/StatisticsCounters.md)
- - [StatisticsCountersStats](docs/Model/StatisticsCountersStats.md)
- - [StatisticsCountersStats1](docs/Model/StatisticsCountersStats1.md)
+ - [StatisticsCountersInner](docs/Model/StatisticsCountersInner.md)
  - [StatisticsDateFrom](docs/Model/StatisticsDateFrom.md)
  - [StatisticsDateTo](docs/Model/StatisticsDateTo.md)
  - [StatisticsFields](docs/Model/StatisticsFields.md)
  - [StatisticsItemIDs](docs/Model/StatisticsItemIDs.md)
+ - [StatisticsPeriodGrouping](docs/Model/StatisticsPeriodGrouping.md)
  - [StatisticsResponse](docs/Model/StatisticsResponse.md)
+ - [StatisticsResponseResult](docs/Model/StatisticsResponseResult.md)
  - [StatisticsShallowRequestBody](docs/Model/StatisticsShallowRequestBody.md)
  - [ValidatingError](docs/Model/ValidatingError.md)
  - [ValidatingErrorError](docs/Model/ValidatingErrorError.md)

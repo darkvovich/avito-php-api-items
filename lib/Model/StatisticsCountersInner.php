@@ -1,6 +1,6 @@
 <?php
 /**
- * CallsStatsResponseResult
+ * StatisticsCountersInner
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CallsStatsResponseResult Class Doc Comment
+ * StatisticsCountersInner Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CallsStatsResponseResult implements ModelInterface, ArrayAccess
+class StatisticsCountersInner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CallsStatsResponse_result';
+    protected static $swaggerModelName = 'StatisticsCounters_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,8 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'items' => '\Swagger\Client\Model\CallsStatsItem[]'    ];
+        'item_id' => 'int',
+'stats' => 'object[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +65,8 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'items' => null    ];
+        'item_id' => 'int64',
+'stats' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +95,8 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items'    ];
+        'item_id' => 'itemId',
+'stats' => 'stats'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +104,8 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems'    ];
+        'item_id' => 'setItemId',
+'stats' => 'setStats'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +113,8 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems'    ];
+        'item_id' => 'getItemId',
+'stats' => 'getStats'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +174,8 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['item_id'] = isset($data['item_id']) ? $data['item_id'] : null;
+        $this->container['stats'] = isset($data['stats']) ? $data['stats'] : null;
     }
 
     /**
@@ -181,9 +187,6 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -200,25 +203,49 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets items
+     * Gets item_id
      *
-     * @return \Swagger\Client\Model\CallsStatsItem[]
+     * @return int
      */
-    public function getItems()
+    public function getItemId()
     {
-        return $this->container['items'];
+        return $this->container['item_id'];
     }
 
     /**
-     * Sets items
+     * Sets item_id
      *
-     * @param \Swagger\Client\Model\CallsStatsItem[] $items Массив статистики по объявлениям
+     * @param int $item_id Идентификатор объявления
      *
      * @return $this
      */
-    public function setItems($items)
+    public function setItemId($item_id)
     {
-        $this->container['items'] = $items;
+        $this->container['item_id'] = $item_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets stats
+     *
+     * @return object[]
+     */
+    public function getStats()
+    {
+        return $this->container['stats'];
+    }
+
+    /**
+     * Sets stats
+     *
+     * @param object[] $stats stats
+     *
+     * @return $this
+     */
+    public function setStats($stats)
+    {
+        $this->container['stats'] = $stats;
 
         return $this;
     }

@@ -254,11 +254,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **itemStatsShallow**
-> \Swagger\Client\Model\StatisticsResponse itemStatsShallow($authorization, $user_id, $body)
+> \Swagger\Client\Model\StatisticsResponse itemStatsShallow($authorization, $content_type, $user_id, $body)
 
 Получение статистики по списку объявлений
 
-Получение счетчиков по переданному списку объявлений пользователя.  **Внимание:** в запросе может быть передано не более 200 идентификаторов объявлений.  **Внимание:** глубина такого запроса ограничена 270 днями.  ### Счетчики * ~~views - общее число просмотров объявления;~~ __DEPRECATED (будет удалено в апреле 2021 г.).__ Используйте поле uniqViews. * uniqViews - число уникальных пользователей, просмотревших объявление; * ~~contacts - число контактов [1];~~ __DEPRECATED (будет удалено в апреле 2021 г.).__ Используйте поле uniqContacts. * uniqContacts - число уникальных пользователей, совершивших контакты [1]; * ~~favorites - число добавлений объявления в \"избранное\";~~ __DEPRECATED (будет удалено в апреле 2021 г.).__ Используйте поле uniqFavorites. * uniqFavorites - число уникальных пользователей, добавивших объявление в \"избранное\".  ### Группировка счетчиков Счетчики могут быть сгруппированы [2] по: * дням; * неделям - в поле `date` соответствующей структуры будет первый день недели; * месяцам - в поле `date` соответствующей структуры будет первый день месяца.  #### Период группировки Период группировки передается в теле запроса в поле `group_by`. Доступные значения этого поля: * \"day\" (по умолчанию) - без группировки; * \"week\" - суммирование счетчиков за неделю; * \"month\" - суммирование счетчиков за месяц.  ### Примечания * [1]: Под контактом понимаются: запросы телефона продавца, начатый чат с продавцом по конкретному объявлению, отклик на резюме и пр. * [2]: Группировка уникальных пользователей происходит только в рамках одного дня.
+Получение счетчиков по переданному списку объявлений пользователя.  **Внимание:** в запросе может быть передано не более 200 идентификаторов объявлений.  **Внимание:** глубина такого запроса ограничена 270 днями.  ### Счетчики * ~~views - общее число просмотров объявления;~~ __DEPRECATED (будет удалено в апреле 2021 г.).__ Используйте поле uniqViews. * uniqViews - число уникальных пользователей, просмотревших объявление; * ~~contacts - число контактов [1];~~ __DEPRECATED (будет удалено в апреле 2021 г.).__ Используйте поле uniqContacts. * uniqContacts - число уникальных пользователей, совершивших контакты [1]; * ~~favorites - число добавлений объявления в \"избранное\";~~ __DEPRECATED (будет удалено в апреле 2021 г.).__ Используйте поле uniqFavorites. * uniqFavorites - число уникальных пользователей, добавивших объявление в \"избранное\".  ### Группировка счетчиков Счетчики могут быть сгруппированы [2] по: * дням; * неделям - в поле `date` соответствующей структуры будет первый день недели; * месяцам - в поле `date` соответствующей структуры будет первый день месяца.  #### Период группировки Период группировки передается в теле запроса в поле `periodGrouping`. Доступные значения этого поля: * \"day\" (по умолчанию) - без группировки; * \"week\" - суммирование счетчиков за неделю; * \"month\" - суммирование счетчиков за месяц.  ### Примечания * [1]: Под контактом понимаются: запросы телефона продавца, начатый чат с продавцом по конкретному объявлению, отклик на резюме и пр. * [2]: Группировка уникальных пользователей происходит только в рамках одного дня.
 
 ### Example
 ```php
@@ -277,11 +277,12 @@ $apiInstance = new Swagger\Client\Api\ItemApi(
     $config
 );
 $authorization = "authorization_example"; // string | Токен для авторизации
+$content_type = "content_type_example"; // string | Тип данных запроса
 $user_id = 789; // int | Идентификатор пользователя (клиента)
 $body = new \Swagger\Client\Model\StatisticsShallowRequestBody(); // \Swagger\Client\Model\StatisticsShallowRequestBody | Набор параметров в теле запроса.
 
 try {
-    $result = $apiInstance->itemStatsShallow($authorization, $user_id, $body);
+    $result = $apiInstance->itemStatsShallow($authorization, $content_type, $user_id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->itemStatsShallow: ', $e->getMessage(), PHP_EOL;
@@ -294,6 +295,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**| Токен для авторизации |
+ **content_type** | **string**| Тип данных запроса |
  **user_id** | **int**| Идентификатор пользователя (клиента) |
  **body** | [**\Swagger\Client\Model\StatisticsShallowRequestBody**](../Model/StatisticsShallowRequestBody.md)| Набор параметров в теле запроса. | [optional]
 
@@ -313,7 +315,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postCallsStats**
-> \Swagger\Client\Model\CallsStatsResponse postCallsStats($body, $authorization, $user_id)
+> \Swagger\Client\Model\CallsStatsResponse postCallsStats($body, $authorization, $content_type, $user_id)
 
 Получение статистики по звонкам
 
@@ -337,10 +339,11 @@ $apiInstance = new Swagger\Client\Api\ItemApi(
 );
 $body = new \Swagger\Client\Model\CallsStatsRequest(); // \Swagger\Client\Model\CallsStatsRequest | 
 $authorization = "authorization_example"; // string | Токен для авторизации
+$content_type = "content_type_example"; // string | Тип данных запроса
 $user_id = 789; // int | Номер пользователя в Личном кабинете Авито
 
 try {
-    $result = $apiInstance->postCallsStats($body, $authorization, $user_id);
+    $result = $apiInstance->postCallsStats($body, $authorization, $content_type, $user_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ItemApi->postCallsStats: ', $e->getMessage(), PHP_EOL;
@@ -354,6 +357,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**\Swagger\Client\Model\CallsStatsRequest**](../Model/CallsStatsRequest.md)|  |
  **authorization** | **string**| Токен для авторизации |
+ **content_type** | **string**| Тип данных запроса |
  **user_id** | **int**| Номер пользователя в Личном кабинете Авито |
 
 ### Return type

@@ -1,6 +1,6 @@
 <?php
 /**
- * CallsStatsResponseResult
+ * StatisticsResponseResult
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * CallsStatsResponseResult Class Doc Comment
+ * StatisticsResponseResult Class Doc Comment
  *
  * @category Class
+ * @description Статистические счетчики объявления
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CallsStatsResponseResult implements ModelInterface, ArrayAccess
+class StatisticsResponseResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CallsStatsResponse_result';
+    protected static $swaggerModelName = 'StatisticsResponse_result';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +57,7 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'items' => '\Swagger\Client\Model\CallsStatsItem[]'    ];
+        'items' => '\Swagger\Client\Model\StatisticsCounters'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -181,9 +182,6 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['items'] === null) {
-            $invalidProperties[] = "'items' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -202,7 +200,7 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
     /**
      * Gets items
      *
-     * @return \Swagger\Client\Model\CallsStatsItem[]
+     * @return \Swagger\Client\Model\StatisticsCounters
      */
     public function getItems()
     {
@@ -212,7 +210,7 @@ class CallsStatsResponseResult implements ModelInterface, ArrayAccess
     /**
      * Sets items
      *
-     * @param \Swagger\Client\Model\CallsStatsItem[] $items Массив статистики по объявлениям
+     * @param \Swagger\Client\Model\StatisticsCounters $items items
      *
      * @return $this
      */
